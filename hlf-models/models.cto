@@ -13,7 +13,8 @@ participant CompanyEmployee identified by id {
 
 asset Substance identified by id {
   o String id
-  o String description
+  o String hazardIdentificationNumber
+  o String unNumber
 }
 
 asset OwnedSubstance identified by id {
