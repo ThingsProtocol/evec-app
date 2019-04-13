@@ -24,7 +24,7 @@ asset OwnedSubstance identified by id {
 
 asset Container identified by id {
   o String id
-  --> Substance load optional
+  --> OwnedSubstance load optional
   --> Company owner
 }
 
@@ -34,9 +34,14 @@ asset Vehicle identified by id {
   --> Container container optional
 }
 
+transaction ProduceSubstance {
+  --> Company producer
+  --> Substance substance
+}
+
 transaction FillContainer {
   --> Container container
-  --> Substance Substance
+  --> OwnedSubstance substance
   --> CompanyEmployee filler
   --> CompanyEmployee receiver
 }
@@ -46,9 +51,4 @@ transaction LoadVehicle {
   --> Container container
   --> CompanyEmployee loader
   --> CompanyEmployee receiver
-}
-
-transaction ProduceProduct {
-  --> Company producer
-  --> Substance substance
 }
